@@ -1,10 +1,10 @@
 @import '../../../../global/scss/config';
 
-.example-modal-content{
+.anime-modal-content{
   @include max-size;
 }
 
-.example-form {
+.anime-form {
   max-width:500px;
 
   & .content{

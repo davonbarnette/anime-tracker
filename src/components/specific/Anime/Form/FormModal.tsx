@@ -3,13 +3,13 @@ import {observer} from "mobx-react";
 
 import './styles.scss';
 
-import ExampleForm from "./ExampleForm";
+import AnimeForm from "./Form";
 import AppActions from "../../../../data/App/Actions";
 import {FIXED_COMPONENT_TYPES} from "../../../../data/App/Types";
 import Modal from "../../../common/Modal/Modal";
 import {Flex} from "../../../common/Flex/Flex";
 
-class ExampleFormModal extends Component{
+class AnimeFormModal extends Component{
 
     onExitModal = () => {
         AppActions.closeFixedComponent(FIXED_COMPONENT_TYPES.MODAL);
@@ -17,13 +17,13 @@ class ExampleFormModal extends Component{
 
     render(){
         return(
-            <Modal exitModalFn={this.onExitModal} title='Add Example'>
-                <Flex className='example-modal-content' flexDirection='column' justifyContent='center'>
-                    <ExampleForm/>
+            <Modal exitModalFn={this.onExitModal} title='Add Anime'>
+                <Flex className='anime-modal-content' flexDirection='column' justifyContent='center'>
+                    <AnimeForm/>
                 </Flex>
             </Modal>
         )
     }
 }
 
-export default observer(ExampleFormModal);
+export default observer(AnimeFormModal);

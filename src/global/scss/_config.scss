@@ -7,8 +7,9 @@ $h4-header: #6f6f6f;
 $h4-subtext: #afafaf;
 
 $primary-background-color: white;
-$secondary-background-color: #f9f9f9;
+$secondary-background-color: #100e16;
 $primary-border-color:#e9e9e9;
+$primary-header-color: #100e16;
 
 @mixin border($border-style){
   border-style: $border-style;

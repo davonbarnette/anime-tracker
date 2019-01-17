@@ -1,13 +1,14 @@
-import {CreateAnimeRequestArgs} from "./Types";
-import uuid from 'uuid/v1';
-import AnimeConsumer from "./Consumer";
+import {QueryAnimeRequestArgs} from "./Types";
+import AnimeAPI from "./APIHandler";
+import AppStore from "../App/Store";
 
 export default class AnimeActions {
 
-    static createOne(name:string){
-        let args:CreateAnimeRequestArgs = { name, uuid:uuid() };
-
-        // Example of consumer taking in the response from this request.
-        AnimeConsumer.onCreateOne(args);
+    static async query(variables:any){
+        let query = AppStore.anilist.gql.baseQuery;
+        let args:QueryAnimeRequestArgs = {query, variables};
+        let response = await AnimeAPI.getAnime(args);
+        const { media, pageInfo } = response.data.data.Page;
+        AppStore.anime.setMultiple(media);
     }
 }

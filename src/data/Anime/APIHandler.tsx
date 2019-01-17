@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios, {AxiosResponse} from 'axios'
+import {QueryAnimeRequestArgs, QueryAnimeResponseArgs} from "./Types";
 
 export default class AnimeAPI {
 
@@ -7,9 +8,10 @@ export default class AnimeAPI {
         await axios.get(url);
     }
 
-    static async getAnime(animeId:string){
-        let url = AnimeAPIRoutes.getAnimeById(animeId);
-        await axios.get(url);
+    static async getAnime(args:QueryAnimeRequestArgs):Promise<AxiosResponse<QueryAnimeResponseArgs>>{
+        let url = AnimeAPIRoutes.animeBase;
+        let headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
+        return await axios.post(url, JSON.stringify(args), {headers});
     }
 
     static async animeOnUploadProgress(animeId:string, data:any, onUploadProgress?:(progressEvent:any) => void){
@@ -21,7 +23,7 @@ export default class AnimeAPI {
 
 export class AnimeAPIRoutes {
 
-    static base = '/api/anime';
+    static base = 'https://graphql.anilist.co';
 
     static get animeBase(){
         return `${AnimeAPIRoutes.base}`

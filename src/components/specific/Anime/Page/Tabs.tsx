@@ -7,31 +7,31 @@ import Tabs from "../../../common/Tabs/Tabs";
 import {SingleTab} from "../../../common/Tabs/types";
 import BrowserRouter, {BrowserRoutes} from "../../../../data/Routers/BrowserRouter";
 
-interface ExampleTabsProps extends RouteComponentProps{
-    exampleId:string
+interface AnimeTabsProps extends RouteComponentProps{
+    animeId:number
     className?:string,
 }
 
-class ExampleTabs extends Component<ExampleTabsProps> {
+class AnimeTabs extends Component<AnimeTabsProps> {
     render(){
-        const { exampleId, location, className } = this.props;
+        const {animeId, location, className } = this.props;
         const { pathname } = location;
-        return <Tabs tabs={TabsObject(exampleId, pathname)} className={className}/>
+        return <Tabs tabs={TabsObject(animeId, pathname)} className={className}/>
     }
 }
 
-export default withRouter(observer(ExampleTabs));
+export default withRouter(observer(AnimeTabs));
 
-const TabsObject = (exampleId:string,pathname:string):SingleTab[] => {
+const TabsObject = (animeId:number,pathname:string):SingleTab[] => {
     return [
         {
-            label: 'Example Tab',
+            label: 'Anime Tab',
             icon: (color: string) => <Icon.Image color={color} size={18}/>,
             onClick: (e: MouseEvent) => {
                 e.stopPropagation();
-                BrowserRouter.push(BrowserRoutes.example);
+                BrowserRouter.push(BrowserRoutes.anime);
             },
-            selected: pathname.indexOf(BrowserRoutes.example) !== -1
+            selected: pathname.indexOf(BrowserRoutes.anime) !== -1
         },
     ]
 };

@@ -37,8 +37,8 @@ export class BrowserRoutes {
 
     /* Data Type Route Chunks */
 
-    static EXAMPLE = 'example';
-    static EXAMPLE_PARAM = 'exampleId';
+    static ANIME = 'anime';
+    static ANIME_PARAM = 'animeId';
 
     static ACCOUNT = 'account';
     static DEBUGGER = 'debugger';
@@ -48,19 +48,19 @@ export class BrowserRoutes {
     }
 
     /* Data Type Static Routes */
-
-    static get example(){
-        return `${BrowserRoutes.BASE}/${BrowserRoutes.EXAMPLE}`;
+    static get anime(){
+        return `${BrowserRoutes.BASE}/${BrowserRoutes.ANIME}`;
     }
-    static get exampleByIdParam(){
+    static get animeByIdParam(){
         // pre-pending a ":" tells React Router that we are considering that option a parameter. Appending a "?" tells
         // it that parameter is optional.
 
-        return `${BrowserRoutes.example}/:${BrowserRoutes.EXAMPLE_PARAM}?`;
+        return `${BrowserRoutes.anime}/:${BrowserRoutes.ANIME_PARAM}?`;
     }
-    static getExampleById(exampleId:string){
-        return `${BrowserRoutes.BASE}/${BrowserRoutes.EXAMPLE}/${exampleId}`;
+    static getAnimeById(animeId:number){
+        return `${BrowserRoutes.BASE}/${BrowserRoutes.ANIME}/${animeId}`;
     }
+
 
     static get account(){
         return `${BrowserRoutes.BASE}/${BrowserRoutes.ACCOUNT}`

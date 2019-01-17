@@ -1,7 +1,6 @@
 
 /* Consumer Imports */
 import AnimeConsumer from "../Anime/Consumer";
-import ExampleConsumer from "../Example/Consumer";
 
 /*
  * Use this file when you have a WebSocket that uses an event:message system. When an event like SOCKET_ACTIONS.example
@@ -18,7 +17,6 @@ export const SOCKET_ACTIONS: any = {
     query_anime: 'query_anime',
     update_anime: 'update_anime',
     delete_anime: 'delete_anime',
-    example: 'example',
 };
 
 
@@ -29,5 +27,4 @@ export const SOCKET_CALLBACKS: any = {
     update_anime: AnimeConsumer.onUpdateOne,
     delete_anime: AnimeConsumer.onDeleteOne,
     query_anime: AnimeConsumer.onQueryOne,
-    example: ExampleConsumer.onCreateOne,
 };

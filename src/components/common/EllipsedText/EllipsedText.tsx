@@ -4,7 +4,7 @@ import './styles.scss'
 import {Tooltip} from "antd";
 
 interface EllipsedTextProps {
-    text:string,
+    text:string|null,
     style?:CSSProperties;
     className?:string,
 }

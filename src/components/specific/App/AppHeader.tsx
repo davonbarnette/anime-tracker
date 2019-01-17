@@ -6,8 +6,7 @@ import Header from "../../common/Header/Header";
 import {RouteComponentProps, withRouter} from "react-router";
 
 export const MAIN_HEADER_ITEMS:SingleHeaderItem[] = [
-    {path: BrowserRoutes.example, label:'Example', icon:(color:string)=><Icon.Sliders color={color} size={18}/>},
-    {path: BrowserRoutes.account, label:'Account', icon:(color:string)=><Icon.User color={color} size={18}/>},
+    // {path: BrowserRoutes.anime, label:'Anime', icon:(color:string)=><Icon.File color={color} size={18}/>},
 ];
 
 interface AppHeaderProps extends RouteComponentProps {

@@ -10,8 +10,8 @@ import DrawerRouter from "../FixedComponentsRouters/DrawerRouter";
 import AppHeader from "./AppHeader";
 
 /* App Imports */
+import AnimePage from "../Anime/Page/Page"
 
-import ExamplePage from "../Example/ExamplePage/ExamplePage";
 
 AppStore.initialize();
 
@@ -21,15 +21,15 @@ class App extends Component<RouteComponentProps, any> {
 
         return (
             <Flex className='app' flexDirection='column'>
-                <AppHeader />
+                <AppHeader/>
                 <Switch>
                     <Route path={BrowserRoutes.account}/>
 
                     /* Data Routes */
-                    <Route path={BrowserRoutes.exampleByIdParam} component={ExamplePage}/>
+                    <Route path={BrowserRoutes.animeByIdParam} component={AnimePage}/>
 
                     <Route exact path={BrowserRoutes.debugger} component={SocketDebugger}/>
-                    <Redirect to={BrowserRoutes.example}/>
+                    <Redirect to={BrowserRoutes.debugger}/>
                 </Switch>
                 <ModalRouter/>
                 <DrawerRouter/>

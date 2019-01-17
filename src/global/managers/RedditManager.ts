@@ -5,11 +5,8 @@ const APPLICATION_ONLY_STRING='client_credentials';
 const REDDIT_CONTENT_TYPE = { "Content-Type":"application/x-www-form-urlencoded" };
 
 export class RedditManagerInstance {
+
     accessToken:any;
-
-    constructor(){
-
-    }
 
     async getOAuthTokenObject(clientId:string, clientSecret:string){
         let params = { grant_type:APPLICATION_ONLY_STRING};

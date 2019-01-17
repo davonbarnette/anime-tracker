@@ -1,0 +1,129 @@
+@import '../../../../global/scss/config';
+
+.anime-card-list {
+
+  @include flex(column, flex-start, center);
+  @include max-size;
+
+  .filters-container{
+    @include flex-center(row);
+    @include pad-box(0 24px);
+    width:100%;
+
+    .filters {
+      @include flex-center(row);
+
+      @media only screen and (max-width: $screen-sm-min) {
+        @include flex-center(column);
+      }
+
+      @include scale-max-content-width;
+      @include pad-box(12px 0);
+
+      .filter-select{
+        width:100%;
+        margin: 0 12px 0 0;
+
+        @media only screen and (max-width: $screen-sm-min) {
+          margin: 0 0 12px 0;
+        }
+
+        &:last-of-type {
+          margin:0;
+        }
+        & > .ant-select-selection {
+          background: white;
+          border:none;
+
+        }
+
+      }
+    }
+  }
+
+  .anime-card-list-scrollable {
+    @include pad-box(24px);
+
+    .cards-wrapper {
+      @include scale-max-content-width;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.anime-card-outer {
+  @include mq-screen-gt($screen-lg-min + 1px){
+    @include flex-basis-grid(5, 140%);
+  }
+  @include mq-screen-btwn($screen-md-min + 1px, $screen-lg-min){
+    @include flex-basis-grid(4, 140%);
+  }
+  @include mq-screen-btwn($screen-sm-min + 1px, $screen-md-min){
+    @include flex-basis-grid(3, 140%);
+  }
+  @include mq-screen-lt($screen-sm-min){
+    @include flex-basis-grid(2, 140%);
+  }
+
+  @include box-shadow-1;
+  position: relative;
+
+  .anime-card {
+
+    @include max-size;
+    @include flex(row, flex-end, flex-end);
+    @include pad-box(12px);
+    @include font(14px, 600, 0em, $dark-gray);
+    @include position-top-left(absolute);
+    @include background-image-center;
+
+
+    background-color: white;
+    overflow: hidden;
+    border-radius: 5px;
+
+    transition: all 0.1s ease-in;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.has-image {
+      box-shadow: inset 0 -120px 120px -30px #000000d1;
+      color: white;
+    }
+
+    &.selected {
+      filter: grayscale(0);
+      border-width: 3px;
+      border-color: $light-blue;
+      cursor: pointer;
+    }
+
+    .details-container {
+      @include flex(column, flex-end, flex-start);
+      width: 100%;
+
+      .name {
+
+      }
+
+      .ratings {
+        @include flex(row, space-between, center);
+        @include font(12px, 600, 0, white);
+        width:100%;
+        line-height: 1em;
+        margin-top: 3px;
+        transition: all 0.1s;
+
+        .rating {
+          @include flex(row, flex-start, center);
+        }
+
+        .icon {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+}

@@ -3,28 +3,28 @@ import {observer} from "mobx-react";
 
 import './styles.scss';
 
-import ExampleActions from "../../../../data/Example/Actions";
+import AnimeActions from "../../../../data/Anime/Actions";
 import {ValidationObject} from "../../../../global/managers/Validator";
 import {Flex} from "../../../common/Flex/Flex";
 import Field from "../../../common/Field/Field";
-import {ExampleValidation} from "../../../../data/Example/ValidationSchemas";
+import {AnimeValidation} from "../../../../data/Anime/ValidationSchemas";
 import Button from "../../../common/Button/Button";
 import AppActions from "../../../../data/App/Actions";
 import {FIXED_COMPONENT_TYPES} from "../../../../data/App/Types";
 
-interface ExampleFormState {
+interface AnimeFormState {
     [key:string]:string|null,
 }
 
-class ExampleForm extends Component<any, ExampleFormState> {
+class AnimeForm extends Component<any, AnimeFormState> {
 
-    state:ExampleFormState = {
+    state:AnimeFormState = {
         name:null,
     };
 
     onSubmitClick = () => {
         const { name } = this.state;
-        ExampleActions.createOne(name!);
+        // AnimeActions.createOne(name!);
         AppActions.closeFixedComponent(FIXED_COMPONENT_TYPES.MODAL);
     };
 
@@ -40,17 +40,17 @@ class ExampleForm extends Component<any, ExampleFormState> {
 
     render(){
         return(
-            <Flex className='example-form' flexDirection='column'>
-                <section className='example-form-content'>
-                    <Field id='name' label='Name' validation={ExampleValidation.name} className='example-form-field'
+            <Flex className='anime-form' flexDirection='column'>
+                <section className='anime-form content'>
+                    <Field id='name' label='Name' validation={AnimeValidation.name} className='field'
                        required onChange={this.onInputChange}/>
                 </section>
-                <section className='example-form-submit'>
-                    <Button className='example-form-submit-button' enabled={!this.disabled} onClick={this.onSubmitClick}>SUBMIT</Button>
+                <section className='submit'>
+                    <Button className='button' enabled={!this.disabled} onClick={this.onSubmitClick}>SUBMIT</Button>
                 </section>
             </Flex>
         )
     }
 }
 
-export default observer(ExampleForm);
+export default observer(AnimeForm);

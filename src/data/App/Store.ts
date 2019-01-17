@@ -1,16 +1,17 @@
 import {decorate, observable} from "mobx";
 import {BaseMapManager} from "../../global/managers/BaseMapManager";
-import {ExampleType} from "../Example/Types";
-import ExampleActions from "../Example/Actions";
+import AnimeActions from "../Anime/Actions";
+import {MediaFormat, MediaFragment, MediaType} from "../../global/managers/AniList/AniListTypes";
+import AniListManager from "../../global/managers/AniList/AniListManager";
 
 class AppStoreClass {
 
     /* Data Types */
-	anime: BaseMapManager<string, ExampleType> = new BaseMapManager("uuid");
-    example:    BaseMapManager<string, ExampleType> = new BaseMapManager('uuid');
-
+	anime:      BaseMapManager<number, MediaFragment> = new BaseMapManager("id");
+    anilist:    AniListManager = new AniListManager();
     drawer?:    string;
     modal?:     string;
+
 
     constructor(){
 
@@ -18,16 +19,21 @@ class AppStoreClass {
 
     initialize(){
         //Delete this when you actually initialize, this is just for testing:
-        ExampleActions.createOne('Testing');
+        AnimeActions.query({
+            page:1,
+            seasonYear: new Date().getFullYear(),
+            type:MediaType.ANIME,
+            format:MediaFormat.TV,
+            season:this.anilist.getCurrentMediaSeason(),
+            averageScore_not:null
+        })
     }
 
 }
 
 decorate(AppStoreClass,{
     /* Data Decorators */
-	anime: observable,
-    example:    observable,
-
+	anime:      observable,
     drawer:     observable,
     modal:      observable,
 });
