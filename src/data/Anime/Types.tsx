@@ -51,11 +51,21 @@ export const ANIME_SORT_FUNCTIONS = {
     AVERAGE_SCORE_DESC:{
         ID:'AVERAGE_SCORE_DESC',
         DISPLAY: 'Average Score Descending',
-        FILTER_FUNCTION:(anime:MediaFragment[])=>AnimeMethods.sort.byAverageScore(anime),
+        SORT_FUNCTION:(anime:MediaFragment[])=>AnimeMethods.sort.byScore(anime, 'averageScore', 'desc'),
     },
     AVERAGE_SCORE_ASC:{
-        ID:'AVERAGE_SCORE',
+        ID:'AVERAGE_SCORE_ASC',
         DISPLAY: 'Average Score Ascending',
-        FILTER_FUNCTION:(anime:MediaFragment[])=>AnimeMethods.sort.byAverageScore(anime),
+        SORT_FUNCTION:(anime:MediaFragment[])=>AnimeMethods.sort.byScore(anime, 'averageScore', 'asc'),
+    },
+    POPULARITY_DESC:{
+        ID:'POPULARITY_DESC',
+        DISPLAY: 'Popularity Descending',
+        SORT_FUNCTION:(anime:MediaFragment[])=>AnimeMethods.sort.byScore(anime, 'popularity', 'desc'),
+    },
+    POPULARITY_ASC:{
+        ID:'POPULARITY_ASC',
+        DISPLAY: 'Popularity Ascending',
+        SORT_FUNCTION:(anime:MediaFragment[])=>AnimeMethods.sort.byScore(anime, 'popularity', 'asc'),
     },
 };

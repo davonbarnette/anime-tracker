@@ -3,7 +3,6 @@
 .header-component {
   @include flex(row, space-between, center);
   @include pad-box(18px 24px);
-  //@include border(none none solid none);
   background: $primary-header-color;
   width: 100%;
 

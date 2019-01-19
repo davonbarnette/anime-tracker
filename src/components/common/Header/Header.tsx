@@ -64,7 +64,7 @@ class Header extends Component<HeaderProps, any> {
         return(
             <section className='header-component'>
                 <Flex className='left-nav'>
-                     <span className='second'>anime</span><span>tracker</span>
+                     <span className='second'>discover</span><span>anime</span>
                 </Flex>
                 <Flex className='right-nav' flexDirection='row' justifyContent='flex-end' alignItems='center'>
                     {this.navItems}

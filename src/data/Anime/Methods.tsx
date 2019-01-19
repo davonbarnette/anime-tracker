@@ -22,13 +22,18 @@ export default class AnimeMethods {
     };
     static sort = {
 
-        byAverageScore(anime:MediaFragment[], direction:'desc'|'asc' = 'desc'){
-
+        byScore(anime:MediaFragment[], prop:string, direction:'desc'|'asc' = 'desc'){
+            if (!anime || anime.length === 0) return [];
+            return anime.sort((a: MediaFragment|any, b:MediaFragment|any) => {
+                if (!a[prop] || !b[prop]) return 0;
+                if (direction === 'desc') return b[prop] - a[prop];
+                else return a[prop] - b[prop];
+            })
         },
 
         getSortFunctions: (filterIdsToApply: string[]) => {
             return filterIdsToApply.map(filterIdToApply => {
-                return (anime:MediaFragment[])=>(ANIME_SORT_FUNCTIONS as any)[filterIdToApply].FILTER_FUNCTION(anime);
+                return (anime:MediaFragment[])=>(ANIME_SORT_FUNCTIONS as any)[filterIdToApply].SORT_FUNCTION(anime);
             });
         },
     }

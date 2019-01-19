@@ -29,7 +29,7 @@ class App extends Component<RouteComponentProps, any> {
                     <Route path={BrowserRoutes.animeByIdParam} component={AnimePage}/>
 
                     <Route exact path={BrowserRoutes.debugger} component={SocketDebugger}/>
-                    <Redirect to={BrowserRoutes.debugger}/>
+                    <Redirect to={BrowserRoutes.anime}/>
                 </Switch>
                 <ModalRouter/>
                 <DrawerRouter/>

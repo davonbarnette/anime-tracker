@@ -4,21 +4,22 @@
 
   @include flex(column, flex-start, center);
   @include max-size;
+  margin-top:24px;
 
   .filters-container{
-    @include flex-center(row);
+    @include flex-center(column);
     @include pad-box(0 24px);
     width:100%;
 
     .filters {
-      @include flex-center(row);
+      @include flex(row, flex-start, flex-start);
 
       @media only screen and (max-width: $screen-sm-min) {
-        @include flex-center(column);
+        @include flex(column, flex-start, flex-start);
       }
 
       @include scale-max-content-width;
-      @include pad-box(12px 0);
+      margin-bottom:12px;
 
       .filter-select{
         width:100%;
